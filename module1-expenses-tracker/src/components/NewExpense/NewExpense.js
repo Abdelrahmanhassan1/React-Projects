@@ -6,6 +6,7 @@ function NewExpense(props) {
   const ExpenseFormDataHandler = (formData) => {
     const expensesData = {
       ...formData,
+      id: Math.random(),
     };
     props.onAddingNewExpense(expensesData);
   };

@@ -17,21 +17,28 @@ function Expenses(props) {
       )
     );
   };
+
+  let content = (
+    <p style={{ color: "white", fontSize: "20px" }}>No Expenses!!</p>
+  );
+
+  if (filteredContent.length > 0) {
+    content = filteredContent.map((expense) => (
+      <ExpenseItem
+        title={expense.title}
+        amount={expense.amount}
+        date={expense.date}
+        key={expense.id}
+      />
+    ));
+  }
   return (
     <Card className="expenses">
       <ExpensesFilter
         selectedYear={filterYear}
         onChangingSelectValue={selectValueHandler}
       />
-
-      {filteredContent.map((expense) => (
-        <ExpenseItem
-          title={expense.title}
-          amount={expense.amount}
-          date={expense.date}
-          key={expense.id}
-        />
-      ))}
+      {content}
     </Card>
   );
 }
