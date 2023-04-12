@@ -43,6 +43,7 @@ function App() {
   return (
     <div className="App">
       <NewExpense onAddingNewExpense={AddingNewExpenseHandler} />
+
       <Expenses expenses={expenses} />
     </div>
   );
