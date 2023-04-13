@@ -22,4 +22,4 @@ This is a simple expenses tracker app that allows you to add, edit and delete ex
 
 #### Live Demo
 
-<a href="https://module1-expenses-tracker-fega5z3lb-abdelrahmanhassan1.vercel.app/" target="_blank"> -> Expenses Tracker Demo <- </a>
+<a href="https://module1-expenses-tracker-597zc0i3j-abdelrahmanhassan1.vercel.app/" target="_blank"> -> Expenses Tracker Demo <- </a>
