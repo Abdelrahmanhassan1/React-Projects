@@ -12,8 +12,14 @@ npm start
 
 ## Projects
 
-### Expenses Tracker
+### 1.Expenses Tracker
 
 This is a simple expenses tracker app that allows you to add, edit and delete expenses. It also allows you to filter expenses by year.
 
-<a href="https://github.com/Abdelrahmanhassan1/React-Projects/tree/main/module1-expenses-tracker"> ->Expenses Tracker<- </a>
+#### View Project
+
+<a href="https://github.com/Abdelrahmanhassan1/React-Projects/tree/main/module1-expenses-tracker"> -> Expenses Tracker Project <- </a>
+
+#### Live Demo
+
+<a href="https://module1-expenses-tracker-fega5z3lb-abdelrahmanhassan1.vercel.app/" target="_blank"> -> Expenses Tracker Demo <- </a>
