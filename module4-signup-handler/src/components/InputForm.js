@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from "./InputForm.module.css";
 
 function InputForm(props) {
   //   const [username, setUsername] = useState("");
@@ -29,7 +30,7 @@ function InputForm(props) {
 
   return (
     <div>
-      <form onSubmit={submitFormHandler}>
+      <form onSubmit={submitFormHandler} className={styles["form"]}>
         <label>Username</label>
         <input
           type="text"

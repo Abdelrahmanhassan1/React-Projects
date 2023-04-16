@@ -1,4 +1,5 @@
 import React from "react";
+import "./UsersList.module.css";
 
 function UsersList(props) {
   return (
@@ -6,7 +7,8 @@ function UsersList(props) {
       {props.users.map((user, index) => {
         return (
           <li key={index}>
-            {user.username} ({user.age} years old)
+            {user.username.charAt(0).toUpperCase() + user.username.slice(1)} (
+            {user.age} years old)
           </li>
         );
       })}

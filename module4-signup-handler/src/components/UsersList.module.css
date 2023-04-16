@@ -1,0 +1,9 @@
+li {
+  list-style: none;
+  background-color: rgb(245, 130, 161);
+  padding: 15px;
+  margin: 10px;
+  font-size: 22px;
+  font-weight: bold;
+  border-radius: 10px;
+}
