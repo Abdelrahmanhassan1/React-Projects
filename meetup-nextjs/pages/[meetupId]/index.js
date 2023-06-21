@@ -1,17 +1,14 @@
 import React from "react";
 import MeetupDetails from "../components/meetups/MeetupDetails";
-import { useRouter } from "next/router";
 
-export default function MeetupWithId() {
-  // const router = useRouter();
-  // console.log(router.query.meetupId);
+export default function MeetupWithId(props) {
   return (
     <>
       <MeetupDetails
-        imageSrc="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Fronalpstock_big.jpg/800px-Fronalpstock_big.jpg"
-        title="First Meetup "
-        address="Some Street 5, Some City"
-        description="This is the first meetup"
+        imageSrc={props.meetupData.image}
+        title={props.meetupData.title}
+        address={props.meetupData.address}
+        description={props.meetupData.description}
       />
     </>
   );
@@ -37,7 +34,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const meetupId = context.params.meetupId;
-  console.log(meetupId);
+  // console.log(meetupId);
 
   return {
     props: {
@@ -47,7 +44,7 @@ export async function getStaticProps(context) {
         id: meetupId,
         title: "First Meetup ",
         address: "Some Street 5, Some City",
-        description: "This is the first meetup",
+        description: "This is the first meetup description!",
       },
     },
   };

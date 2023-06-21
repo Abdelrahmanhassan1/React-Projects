@@ -8,7 +8,7 @@ async function handler(req, res) {
     const data = req.body;
 
     const client = await MongoClient.connect(
-      "mongodb+srv://abdelrahmanha278:DHVFhsjvihluhdh@123@cluster0.ovj2a.mongodb.net/meetups?retryWrites=true&w=majority"
+      "mongodb+srv://abdelrahmanhassan081:2RMk1aqe8E3UFKfA@cluster0.pydzo0b.mongodb.net/meetups?retryWrites=true&w=majority"
     );
     const db = client.db();
 
@@ -20,7 +20,7 @@ async function handler(req, res) {
 
     client.close();
 
-    res.status(201).json({ message: "Meetup inserted!" });
+    res.status(200).json({ message: "Meetup inserted!" });
   }
 }
 
