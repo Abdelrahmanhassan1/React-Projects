@@ -1,5 +1,6 @@
 import React from "react";
 import MeetupDetails from "../components/meetups/MeetupDetails";
+import { MongoClient, ObjectId } from "mongodb";
 
 export default function MeetupWithId(props) {
   return (
@@ -15,36 +16,51 @@ export default function MeetupWithId(props) {
 }
 
 export async function getStaticPaths() {
+  const client = await MongoClient.connect(
+    "mongodb+srv://abdelrahmanhassan081:2RMk1aqe8E3UFKfA@cluster0.pydzo0b.mongodb.net/meetups?retryWrites=true&w=majority"
+  );
+
+  const db = client.db();
+
+  const meetupsCollection = db.collection("meetups");
+
+  const meetups = await meetupsCollection.find({}, { _id: 1 }).toArray();
+
+  client.close();
+
   return {
     fallback: false,
-    paths: [
-      {
-        params: {
-          meetupId: "m1",
-        },
-      },
-      {
-        params: {
-          meetupId: "m2",
-        },
-      },
-    ],
+    paths: meetups.map((meetup) => ({
+      params: { meetupId: meetup._id.toString() },
+    })),
   };
 }
 
 export async function getStaticProps(context) {
   const meetupId = context.params.meetupId;
-  // console.log(meetupId);
+
+  const client = await MongoClient.connect(
+    "mongodb+srv://abdelrahmanhassan081:2RMk1aqe8E3UFKfA@cluster0.pydzo0b.mongodb.net/meetups?retryWrites=true&w=majority"
+  );
+
+  const db = client.db();
+
+  const meetupsCollection = db.collection("meetups");
+
+  const selectedMeetup = await meetupsCollection.findOne({
+    _id: new ObjectId(meetupId),
+  });
+
+  client.close();
 
   return {
     props: {
       meetupData: {
-        image:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Fronalpstock_big.jpg/800px-Fronalpstock_big.jpg",
-        id: meetupId,
-        title: "First Meetup ",
-        address: "Some Street 5, Some City",
-        description: "This is the first meetup description!",
+        image: selectedMeetup.image,
+        id: selectedMeetup._id.toString(),
+        title: selectedMeetup.title,
+        address: selectedMeetup.address,
+        description: selectedMeetup.description,
       },
     },
   };
